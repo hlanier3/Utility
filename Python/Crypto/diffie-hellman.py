@@ -7,7 +7,6 @@ Created on Mon Nov 23 16:20:30 2020
 
 import math
 import random
-import numpy
 
 def dh(n):
     m = random.randint(0,n)
@@ -16,10 +15,10 @@ def dh(n):
     alice = random.randint(0, p)
     bob = random.randint(0, p)
     print(alice, bob)
-    aliceP = ((p % m) ** alice) % m
-    bobP = ((p % m) ** bob) % m
+    aliceP = pow(p,alice,m)
+    bobP = pow(p,bob,m)
     print(aliceP, bobP)
-    key = (aliceP ** bobP) % m
+    key = pow(aliceP,bobP,m)
     
     return key
 
